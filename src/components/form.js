@@ -12,8 +12,8 @@ export const Form = () => {
 
 	const counter = inputValue.length + fileList.length * 5;
 
-	const deleteFileHandler = (removedIndex) => {
-		setFileList(fileList.filter((_,index) => index !== removedIndex)) // не знаю как сделать иначе(_,...), нашел решение на ютубе.
+	const deleteFileHandler = (name) => {
+		setFileList(fileList.filter((files) => files.name !== name)) 
 	}
 
 

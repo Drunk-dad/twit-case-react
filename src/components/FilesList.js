@@ -6,13 +6,13 @@ export const FileList = (props) => {
   return (
     <ul className="choise_list">
       {files.length > 0 &&
-        files.map((element, index) => (
-          <li key={index}>
+        files.map((element) => (
+          <li key={element.name}>
             <span>{element.name}</span>
             <button
               type="button"
               className="delete_btn"
-              onClick={() => onDelete(index)}
+              onClick={() => onDelete(element.name)}
             >
               &times;
             </button>
