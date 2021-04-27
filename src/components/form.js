@@ -10,6 +10,8 @@ export const Form = () => {
 	const [inputValue, setInputValue] = useState("");
 	const [fileList, setFileList] = useState([]);
 
+	const counter = inputValue.length + fileList.length * 5;
+
 	const deleteFileHandler = (removedIndex) => {
 		setFileList(fileList.filter((_,index) => index !== removedIndex)) // не знаю как сделать иначе(_,...), нашел решение на ютубе.
 	}
@@ -34,12 +36,12 @@ export const Form = () => {
 			/>
 			<Counter
 				maxValue={ MAX_VALUE }
-				counterValue={ inputValue.length + fileList.length * 5 }
+				counterValue={ counter }
 			/>
       <div className="input_file_wrp">
 				<InputFile onChange={ addFile }/>
 				<FileList files={fileList} onDelete={deleteFileHandler}/>
-				<Button isDisabled={ (inputValue.length + fileList.length * 5) > MAX_VALUE } />
+				<Button isDisabled={ counter > MAX_VALUE || counter < 1} />
 			</div>
     </form>
   );
