@@ -1,6 +1,6 @@
 import React from "react";
 
-export const InputFile = (proops) => {
+export const InputFile = (props) => {
   return (
     <label className="input_file_wrp file-label">
       <img
@@ -8,7 +8,12 @@ export const InputFile = (proops) => {
         className="icon-file"
         alt="XyU"
       />
-      <input className="input-file" type="file" multiple />
+      <input 
+				className="input-file" 
+				type="file" 
+				multiple
+				accept=".jpg,.jpeg,.png,.svg"
+				/>
     </label>
   );
 };
