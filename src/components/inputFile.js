@@ -13,6 +13,7 @@ export const InputFile = (props) => {
 				type="file" 
 				multiple
 				accept=".jpg,.jpeg,.png,.svg"
+				onChange={ props.onChange }
 				/>
     </label>
   );

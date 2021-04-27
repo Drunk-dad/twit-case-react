@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { Button } from "./button";
-import { Counter } from "./counter";
-import { InputFile } from "./inputFile";
-import { InputText } from "./inputText";
+import { Button } from "./Button";
+import { Counter } from "./Counter";
+import { InputFile } from "./InputFile";
+import { InputText } from "./InputText";
 
 export const Form = () => {
   const MAX_VALUE = 20;
 	const [inputValue, setInputValue] = useState("");
 	const [fileList, setFileList] = useState([]);
-	
+	const counter = inputValue.length + fileList.length ;
 
+  const addFile = (event) => {
+  setFileList(Array.from(event.target.files))
+  }
 
 	const submitHandler = (event) =>{
 		event.preventDefault();
@@ -29,8 +32,8 @@ export const Form = () => {
 				counterValue={ inputValue.length + fileList.length * 5 }
 			/>
       <div className="input_file_wrp">
-				<InputFile/>
-				<Button/>
+				<InputFile onChange={ addFile }/>
+				<Button isDisabled={ (inputValue.length + fileList.length * 5) > MAX_VALUE } />
 			</div>
     </form>
   );
